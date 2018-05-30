@@ -56,8 +56,7 @@ reduced <- total[,headers] #creates new table with just std dev and mean columns
 ##to change the activities from numbers to the 
 ##corresponding text description. Then it makes these
 ##titles, as well as the column titles neater by 
-##eliminating symbols and adding in words for 
-##abbrivations.
+##eliminating symbols.
 ##################################################
 activity_names <- read.table("./HAR Dataset/UCI HAR Dataset/activity_labels.txt") 
 
@@ -69,8 +68,6 @@ reduced$labels<-gsub("_"," ", reduced$labels) #removes _ symbol
 
 names(reduced) <- gsub("-"," ", names(reduced)) #removes - 
 names(reduced) <- gsub("()","", names(reduced), fixed = TRUE) #removes ()
-names(reduced) <- gsub('^t',"time ", names(reduced))#changes t to time
-names(reduced) <- gsub('^f',"freq ", names(reduced)) #changes f to freq
 
 ##############Create averages table##############
 ##This section takes the reduce model and groups 
